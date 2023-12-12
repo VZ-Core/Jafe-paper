@@ -1,0 +1,19 @@
+#!/bin/bash
+# 隨機參數
+gen=`openssl rand -base64 3`
+# 文件後綴名設定
+filetype=.md
+# 同步遠程倉庫
+git pull
+# 進入Blog文章目錄
+cd src/content/blog/
+# 自動生成博客文章文件
+echo 'Post file is'`date -I`"$gen""$filetype"
+sleep 3
+#cp exmp `date -I`"$gen""$filetype" && typora `date -I`"$gen""$filetype"
+cp exmp `date -I`"$gen""$filetype" && vim `date -I`"$gen""$filetype"
+
+# 更新到遠程倉庫
+git add .
+git commit -m 'Type something'
+git push -f

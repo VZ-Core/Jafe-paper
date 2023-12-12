@@ -1,0 +1,6 @@
+#!/bin/ash
+echo 'auto update'
+sync
+git pull
+sleep 2
+git add . && git commit -m 'Type something' && git push -f
